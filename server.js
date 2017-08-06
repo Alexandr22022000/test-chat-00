@@ -11,13 +11,15 @@ const express = require('express'),
 
 pg.defaults.ssl = true;
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => getIndex(res));
 
 app.get('/registration', (req, res) => registration(req, res, store));
 
-const server = app.listen(5000, () => {console.log('Server is starting on port 5000')});
+const server = app.listen(app.get('port'), () => {console.log('Server is starting on port ' + app.get('port'))});
 
 store.io = socketDriver(server);
 
