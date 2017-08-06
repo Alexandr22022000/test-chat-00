@@ -3,9 +3,9 @@ const express = require('express'),
     socketDriver = require('socket.io'),
     bodyParser = require('body-parser'),
 
-    getIndex = require('./scripts/getMainPage'),
-    login = require('./scripts/login'),
-    registration = require('./scripts/registration'),
+    getMainPage = require('./server-scripts/getMainPage'),
+    login = require('./server-scripts/login'),
+    registration = require('./server-scripts/registration'),
 
     app = express(),
     store = {sockets: []};
@@ -16,9 +16,9 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
+app.use(express.static('views'));
 
-app.get('/', (req, res) => getIndex(res));
+app.get('/', (req, res) => getMainPage(res));
 
 app.post('/registration', (req, res) => registration(req, res, store));
 

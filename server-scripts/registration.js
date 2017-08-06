@@ -1,7 +1,7 @@
 const cheekRegistrationData = require('./cheekRegistrationData'),
     cheekUniquenessLogin = require('./cheekUniquenessLogin'),
     {connectToDatabase, disconnectDatabase} = require('./databaseConnectManager'),
-    {INCORRECT_DATA, LOGIN_USED} = require('../views/constants/statuses');
+    {INCORRECT_DATA, LOGIN_USED} = require('../app/constants/statuses');
 
 module.exports = (req, res, store) => {
     const name = req.body.userName, password = req.body.password, login = req.body.login;

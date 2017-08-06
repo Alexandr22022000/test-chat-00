@@ -1,6 +1,6 @@
 const pg = require('pg'),
     deleteSpace = require('./deleteSpace'),
-    {NONE_USER} = require('../views/constants/statuses');
+    {NONE_USER} = require('../app/constants/statuses');
 
 module.exports = (loginData, pool, callback) => {
     pool.query('SELECT * FROM users', (error, data) => {

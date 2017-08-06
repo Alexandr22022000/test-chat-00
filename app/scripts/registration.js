@@ -30,8 +30,16 @@ module.exports = (login, password, userName, store) => {
             changePage(PAGE_LOGIN);
         })
         .catch((error) => {
-            console.log(error);
-            store.toolbar.setStatus(CONNECT_ERROR);
+            switch (error.statusCode) {
+                case 500:
+                    console.log(error);
+                    store.toolbar.setStatus(SERVER_ERROR);
+                    break;
+
+                default:
+                    console.log(error);
+                    store.toolbar.setStatus(CONNECT_ERROR);
+            }
         });
 };
 
