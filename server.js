@@ -1,8 +1,9 @@
 const express = require('express'),
     pg = require('pg'),
     socketDriver = require('socket.io'),
+    bodyParser = require('body-parser'),
 
-    getIndex = require('./scripts/getIndex'),
+    getIndex = require('./scripts/getMainPage'),
     login = require('./scripts/login'),
     registration = require('./scripts/registration'),
 
@@ -13,11 +14,13 @@ pg.defaults.ssl = true;
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(bodyParser.json());
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => getIndex(res));
 
-app.get('/registration', (req, res) => registration(req, res, store));
+app.post('/registration', (req, res) => registration(req, res, store));
 
 const server = app.listen(app.get('port'), () => {console.log('Server is starting on port ' + app.get('port'))});
 

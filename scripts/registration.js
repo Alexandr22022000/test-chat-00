@@ -1,12 +1,10 @@
-const getParams = require('./getParams'),
-    cheekRegistrationData = require('./cheekRegistrationData'),
+const cheekRegistrationData = require('./cheekRegistrationData'),
     cheekUniquenessLogin = require('./cheekUniquenessLogin'),
     {connectToDatabase, disconnectDatabase} = require('./databaseConnectManager'),
     {INCORRECT_DATA, LOGIN_USED} = require('../views/constants/statuses');
 
 module.exports = (req, res, store) => {
-    const params = getParams(req.url),
-        name = decodeURIComponent(params.name), login = decodeURIComponent(params.login), password = decodeURIComponent(params.pass);
+    const name = req.body.userName, password = req.body.password, login = req.body.login;
 
     if (!cheekRegistrationData(name, login, password)) {
         res.status(200).jsonp({error: INCORRECT_DATA});
