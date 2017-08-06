@@ -1,13 +1,13 @@
 const jsonp = require('jsonp'),
     changePage = require('../interface-scripts/changePage'),
     {SERVER_ERROR, WAITING, READY, INCORRECT_DATA, LOGIN_USED, CONNECT_ERROR} = require('../constants/statuses'),
-    {PAGE_LOGIN} = require('../constants/constants'),
-    {LOCALHOST, HOST} = require('../constants/hosts');
+    {PAGE_LOGIN} = require('../constants/pages'),
+    getUrl = require('./getUrl');
 
 module.exports = (login, password, userName, store) => {
     store.toolbar.setStatus(WAITING);
 
-    jsonp(`${HOST}/registration?login=${login}&pass=${password}&name=${userName}`, (error, response) => {
+    jsonp(`${getUrl()}/registration?login=${login}&pass=${password}&name=${userName}`, (error, response) => {
         if (error) {
             console.log(error);
             store.toolbar.setStatus(CONNECT_ERROR);

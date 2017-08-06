@@ -1,6 +1,6 @@
 const changePage = require('./changePage'),
     registration = require('../scripts/registration'),
-    {PAGE_LOGIN} = require('../constants/constants');
+    {PAGE_LOGIN} = require('../constants/pages');
 
 class RegistrationPage {
     constructor (store) {

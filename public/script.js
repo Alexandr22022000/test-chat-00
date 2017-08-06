@@ -6398,11 +6398,6 @@ const PAGE_LOGIN = 'PAGE_LOGIN',
 
 module.exports = {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT};
 },{}],47:[function(require,module,exports){
-const LOCALHOST = 'http://localhost:5000',
-    HOST = 'https://test-chat-00.herokuapp.com';
-
-module.exports = {LOCALHOST, HOST};
-},{}],48:[function(require,module,exports){
 const NONE_USER = 'NONE_USER',
     INCORRECT_DATA = 'INCORRECT_DATA',
     LOGIN_USED = 'LOGIN_USED',
@@ -6412,7 +6407,7 @@ const NONE_USER = 'NONE_USER',
     READY = 'READY';
 
 module.exports = {NONE_USER, INCORRECT_DATA, LOGIN_USED, SERVER_ERROR, CONNECT_ERROR, WAITING, READY};
-},{}],49:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 var ChatPage = require('./interface-scripts/chatPage'),
@@ -6427,7 +6422,7 @@ document.addEventListener('DOMContentLoaded', function () {
     store.registrationPage = new RegistrationPage(store);
     store.toolbar = new Toolbar(store);
 }, false);
-},{"./interface-scripts/chatPage":51,"./interface-scripts/loginPage":52,"./interface-scripts/registrationPage":53,"./interface-scripts/toolbar":54}],50:[function(require,module,exports){
+},{"./interface-scripts/chatPage":50,"./interface-scripts/loginPage":51,"./interface-scripts/registrationPage":52,"./interface-scripts/toolbar":53}],49:[function(require,module,exports){
 const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/constants');
 
 module.exports = (page) => {
@@ -6451,7 +6446,7 @@ module.exports = (page) => {
             break;
     }
 };
-},{"../constants/constants":46}],51:[function(require,module,exports){
+},{"../constants/constants":46}],50:[function(require,module,exports){
 const sendMessage = require('../scripts/sendMessage');
 
 class ChatPage {
@@ -6480,7 +6475,7 @@ class ChatPage {
 }
 
 module.exports = ChatPage;
-},{"../scripts/sendMessage":59}],52:[function(require,module,exports){
+},{"../scripts/sendMessage":59}],51:[function(require,module,exports){
 const changePage = require('./changePage'),
     login = require('../scripts/login'),
     createSocket = require('../scripts/createSocket'),
@@ -6500,7 +6495,7 @@ class LoginPage {
 }
 
 module.exports = LoginPage;
-},{"../constants/constants":46,"../scripts/createSocket":55,"../scripts/login":56,"./changePage":50}],53:[function(require,module,exports){
+},{"../constants/constants":46,"../scripts/createSocket":54,"../scripts/login":56,"./changePage":49}],52:[function(require,module,exports){
 const changePage = require('./changePage'),
     registration = require('../scripts/registration'),
     {PAGE_LOGIN} = require('../constants/constants');
@@ -6520,7 +6515,7 @@ class RegistrationPage {
 }
 
 module.exports = RegistrationPage;
-},{"../constants/constants":46,"../scripts/registration":58,"./changePage":50}],54:[function(require,module,exports){
+},{"../constants/constants":46,"../scripts/registration":58,"./changePage":49}],53:[function(require,module,exports){
 const logout = require('../scripts/logout'),
     {NONE_USER, INCORRECT_DATA, LOGIN_USED, SERVER_ERROR, CONNECT_ERROR, WAITING, READY} = require('../constants/statuses');
 
@@ -6580,17 +6575,17 @@ class Toolbar {
 }
 
 module.exports = Toolbar;
-},{"../constants/statuses":48,"../scripts/logout":57}],55:[function(require,module,exports){
+},{"../constants/statuses":47,"../scripts/logout":57}],54:[function(require,module,exports){
 const io = require('socket.io-client'),
     changePage = require('../interface-scripts/changePage'),
     {PAGE_CHAT} = require('../constants/constants'),
     {NONE_USER, SERVER_ERROR, READY} = require('../constants/statuses'),
-    {LOCALHOST, HOST} = require('../constants/hosts');
+    getUrl = require('./getUrl');
 
 module.exports = (store) => {
     if (store.socket) return;
 
-    store.socket = io(HOST);
+    store.socket = io(getUrl());
 
     store.socket.on('on-login', (data) => {
         if (!data.error) {
@@ -6616,14 +6611,28 @@ module.exports = (store) => {
         }
     });
 };
-},{"../constants/constants":46,"../constants/hosts":47,"../constants/statuses":48,"../interface-scripts/changePage":50,"socket.io-client":35}],56:[function(require,module,exports){
+},{"../constants/constants":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"socket.io-client":35}],55:[function(require,module,exports){
+module.exports = () => {
+    let url = window.location.href;
+
+    if (url.substring(url.length - 1, url.length) === '#') {
+        url = url.substring(0, url.length - 1);
+    }
+
+    if (url.substring(url.length - 1, url.length) === '/') {
+        url = url.substring(0, url.length - 1);
+    }
+
+    return url;
+};
+},{}],56:[function(require,module,exports){
 const {WAITING} = require('../constants/statuses');
 
 module.exports = (login, password, store) => {
     store.toolbar.setStatus(WAITING);
     store.socket.emit('login', {login, password});
 };
-},{"../constants/statuses":48}],57:[function(require,module,exports){
+},{"../constants/statuses":47}],57:[function(require,module,exports){
 const changePage = require('../interface-scripts/changePage'),
     {PAGE_LOGIN} = require('../constants/constants');
 
@@ -6633,17 +6642,17 @@ module.exports = (store) => {
     store.toolbar.setUser(null);
     changePage(PAGE_LOGIN);
 };
-},{"../constants/constants":46,"../interface-scripts/changePage":50}],58:[function(require,module,exports){
+},{"../constants/constants":46,"../interface-scripts/changePage":49}],58:[function(require,module,exports){
 const jsonp = require('jsonp'),
     changePage = require('../interface-scripts/changePage'),
     {SERVER_ERROR, WAITING, READY, INCORRECT_DATA, LOGIN_USED, CONNECT_ERROR} = require('../constants/statuses'),
     {PAGE_LOGIN} = require('../constants/constants'),
-    {LOCALHOST, HOST} = require('../constants/hosts');
+    getUrl = require('./getUrl');
 
 module.exports = (login, password, userName, store) => {
     store.toolbar.setStatus(WAITING);
 
-    jsonp(`${HOST}/registration?login=${login}&pass=${password}&name=${userName}`, (error, response) => {
+    jsonp(`${getUrl()}/registration?login=${login}&pass=${password}&name=${userName}`, (error, response) => {
         if (error) {
             console.log(error);
             store.toolbar.setStatus(CONNECT_ERROR);
@@ -6681,8 +6690,8 @@ module.exports = (login, password, userName, store) => {
 };
 
 
-},{"../constants/constants":46,"../constants/hosts":47,"../constants/statuses":48,"../interface-scripts/changePage":50,"jsonp":29}],59:[function(require,module,exports){
+},{"../constants/constants":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"jsonp":29}],59:[function(require,module,exports){
 module.exports = (text, socket) => {
     socket.emit('send-message', text);
 };
-},{}]},{},[49])
+},{}]},{},[48])

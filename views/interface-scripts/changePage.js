@@ -1,4 +1,4 @@
-const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/constants');
+const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/pages');
 
 module.exports = (page) => {
     switch (page) {

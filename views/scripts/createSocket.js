@@ -1,13 +1,13 @@
 const io = require('socket.io-client'),
     changePage = require('../interface-scripts/changePage'),
-    {PAGE_CHAT} = require('../constants/constants'),
+    {PAGE_CHAT} = require('../constants/pages'),
     {NONE_USER, SERVER_ERROR, READY} = require('../constants/statuses'),
-    {LOCALHOST, HOST} = require('../constants/hosts');
+    getUrl = require('./getUrl');
 
 module.exports = (store) => {
     if (store.socket) return;
 
-    store.socket = io(HOST);
+    store.socket = io(getUrl());
 
     store.socket.on('on-login', (data) => {
         if (!data.error) {

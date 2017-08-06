@@ -1,7 +1,7 @@
 const changePage = require('./changePage'),
     login = require('../scripts/login'),
     createSocket = require('../scripts/createSocket'),
-    {PAGE_REGISTRATION} = require('../constants/constants');
+    {PAGE_REGISTRATION} = require('../constants/pages');
 
 class LoginPage {
     constructor (store) {
