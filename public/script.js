@@ -6423,7 +6423,7 @@ document.addEventListener('DOMContentLoaded', function () {
     store.toolbar = new Toolbar(store);
 }, false);
 },{"./interface-scripts/chatPage":50,"./interface-scripts/loginPage":51,"./interface-scripts/registrationPage":52,"./interface-scripts/toolbar":53}],49:[function(require,module,exports){
-const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/constants');
+const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/pages');
 
 module.exports = (page) => {
     switch (page) {
@@ -6446,7 +6446,7 @@ module.exports = (page) => {
             break;
     }
 };
-},{"../constants/constants":46}],50:[function(require,module,exports){
+},{"../constants/pages":46}],50:[function(require,module,exports){
 const sendMessage = require('../scripts/sendMessage');
 
 class ChatPage {
@@ -6479,7 +6479,7 @@ module.exports = ChatPage;
 const changePage = require('./changePage'),
     login = require('../scripts/login'),
     createSocket = require('../scripts/createSocket'),
-    {PAGE_REGISTRATION} = require('../constants/constants');
+    {PAGE_REGISTRATION} = require('../constants/pages');
 
 class LoginPage {
     constructor (store) {
@@ -6495,10 +6495,10 @@ class LoginPage {
 }
 
 module.exports = LoginPage;
-},{"../constants/constants":46,"../scripts/createSocket":54,"../scripts/login":56,"./changePage":49}],52:[function(require,module,exports){
+},{"../constants/pages":46,"../scripts/createSocket":54,"../scripts/login":56,"./changePage":49}],52:[function(require,module,exports){
 const changePage = require('./changePage'),
     registration = require('../scripts/registration'),
-    {PAGE_LOGIN} = require('../constants/constants');
+    {PAGE_LOGIN} = require('../constants/pages');
 
 class RegistrationPage {
     constructor (store) {
@@ -6515,7 +6515,7 @@ class RegistrationPage {
 }
 
 module.exports = RegistrationPage;
-},{"../constants/constants":46,"../scripts/registration":58,"./changePage":49}],53:[function(require,module,exports){
+},{"../constants/pages":46,"../scripts/registration":58,"./changePage":49}],53:[function(require,module,exports){
 const logout = require('../scripts/logout'),
     {NONE_USER, INCORRECT_DATA, LOGIN_USED, SERVER_ERROR, CONNECT_ERROR, WAITING, READY} = require('../constants/statuses');
 
@@ -6578,7 +6578,7 @@ module.exports = Toolbar;
 },{"../constants/statuses":47,"../scripts/logout":57}],54:[function(require,module,exports){
 const io = require('socket.io-client'),
     changePage = require('../interface-scripts/changePage'),
-    {PAGE_CHAT} = require('../constants/constants'),
+    {PAGE_CHAT} = require('../constants/pages'),
     {NONE_USER, SERVER_ERROR, READY} = require('../constants/statuses'),
     getUrl = require('./getUrl');
 
@@ -6611,18 +6611,18 @@ module.exports = (store) => {
         }
     });
 };
-},{"../constants/constants":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"socket.io-client":35}],55:[function(require,module,exports){
+},{"../constants/pages":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"socket.io-client":35}],55:[function(require,module,exports){
+const deleteSymbol = (url, symbol) => {
+    if (url.substring(url.length - 1, url.length) === symbol) {
+        return url.substring(0, url.length - 1);
+    }
+    return url;
+};
+
 module.exports = () => {
     let url = window.location.href;
-
-    if (url.substring(url.length - 1, url.length) === '#') {
-        url = url.substring(0, url.length - 1);
-    }
-
-    if (url.substring(url.length - 1, url.length) === '/') {
-        url = url.substring(0, url.length - 1);
-    }
-
+    url = deleteSymbol(url, '#');
+    url = deleteSymbol(url, '/');
     return url;
 };
 },{}],56:[function(require,module,exports){
@@ -6634,7 +6634,7 @@ module.exports = (login, password, store) => {
 };
 },{"../constants/statuses":47}],57:[function(require,module,exports){
 const changePage = require('../interface-scripts/changePage'),
-    {PAGE_LOGIN} = require('../constants/constants');
+    {PAGE_LOGIN} = require('../constants/pages');
 
 module.exports = (store) => {
     store.socket.emit('logout', null);
@@ -6642,11 +6642,11 @@ module.exports = (store) => {
     store.toolbar.setUser(null);
     changePage(PAGE_LOGIN);
 };
-},{"../constants/constants":46,"../interface-scripts/changePage":49}],58:[function(require,module,exports){
+},{"../constants/pages":46,"../interface-scripts/changePage":49}],58:[function(require,module,exports){
 const jsonp = require('jsonp'),
     changePage = require('../interface-scripts/changePage'),
     {SERVER_ERROR, WAITING, READY, INCORRECT_DATA, LOGIN_USED, CONNECT_ERROR} = require('../constants/statuses'),
-    {PAGE_LOGIN} = require('../constants/constants'),
+    {PAGE_LOGIN} = require('../constants/pages'),
     getUrl = require('./getUrl');
 
 module.exports = (login, password, userName, store) => {
@@ -6690,7 +6690,7 @@ module.exports = (login, password, userName, store) => {
 };
 
 
-},{"../constants/constants":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"jsonp":29}],59:[function(require,module,exports){
+},{"../constants/pages":46,"../constants/statuses":47,"../interface-scripts/changePage":49,"./getUrl":55,"jsonp":29}],59:[function(require,module,exports){
 module.exports = (text, socket) => {
     socket.emit('send-message', text);
 };
