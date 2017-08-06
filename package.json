@@ -21,11 +21,6 @@
     "gulp-browserify": "^0.5.1"
   },
   "dependencies": {
-    "jsonp": "^0.2.1",
-    "socket.io-client": "latest",
-    "pg": "7.0.2",
-    "socket.io": "^2.0.3",
-    "express": "^4.15.3",
-    "node": "6.11.1"
+
   }
 }
