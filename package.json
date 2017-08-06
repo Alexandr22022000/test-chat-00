@@ -15,9 +15,11 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-browserify": "^0.5.1",
-    "pg": "7.0.2"
+    "pg": "7.0.2",
+    "socket.io": "^2.0.3"
   },
   "dependencies": {
-    "jsonp": "^0.2.1"
+    "jsonp": "^0.2.1",
+    "socket.io-client": "latest"
   }
 }

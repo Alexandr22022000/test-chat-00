@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    //border: 1px solid red;
+}
+
+body {
+    background-color: #666;
+}
+
+
+/*
+---Toolbar---
+ */
+
+.toolbar {
+    background-color: #333;
+    height: 50px;
+}
+
+.toolbar__status, .toolbar__user-name, .toolbar__logout {
+    display: inline-block;
+}
+
+.toolbar__user-name, .toolbar__logout {
+    float: right;
+}
+
+.toolbar__status {
+    color: #CCC;
+    margin: 17px 20px;
+}
+
+.toolbar__user-name {
+    margin: 5px 20px;
+    color: #CCC;
+}
+
+.toolbar__logout {
+    height: 100%;
+    width: 100px;
+    background-color: #333333;
+    border: 0;
+    border-left: 2px solid #000;
+    color: #CCC;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*
+---Login---
+ */
+
+.login {
+    background: #AAA;
+    display: block;
+    margin: 200px auto;
+    width: 400px;
+    text-align: center;
+    padding: 10px 50px 15px 50px;
+}
+
+.login__login, .login__password, .login__run, .login__go-to-registration {
+    display: block;
+}
+
+.login__password, .login__login {
+    width: 100%;
+    height: 25px;
+}
+
+.login__annotation {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.login__run {
+    width: 150px;
+    height: 50px;
+    font-size: 30px;
+    margin: 30px auto 20px auto;
+    cursor: pointer;
+}
+
+/*
+---Registration---
+ */
+
+.registration {
+    background: #AAA;
+    display: block;
+    margin: 200px auto;
+    width: 400px;
+    text-align: center;
+    padding: 20px 50px;
+}
+
+.registration__login, .registration__name, .registration__password, .registration__run, .registration__go-to-registration {
+    display: block;
+}
+
+.registration__password, .registration__login, .registration__name {
+    width: 100%;
+    height: 25px;
+}
+
+.registration__annotation {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.registration__run {
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    margin: 30px auto 20px auto;
+    cursor: pointer;
+}
+
+/*
+---Chat---
+ */
+
+.chat {
+    margin: 50px auto;
+    width: 800px;
+    background-color: #FFF;
+}
+
+.chat__messages {
+    height: 720px;
+    width: 800px;
+    background-color: #333;
+}
+
+.chat__send-new-message, .chat__text-new-message {
+    border: 0;
+}
+
+.chat__text-new-message {
+    width: 666px;
+    font-size: 20px;
+    height: 40px;
+}
+
+.chat__send-new-message {
+    width: 130px;
+    background-color: #444;
+    cursor: pointer;
+    height: 43px;
+    font-size: 20px;
+}
+
+.chat__messages {
+    overflow-y: auto;
+}
+
+/*
+---Message---
+ */
+
+.message {
+    border: 2px solid #000;
+    padding: 5px;
+}
+
+.message__text {
+    font-size: 15px;
+}
+
+.message__sender {
+    text-align: right;
+}
+
+/*
+---Скрытие в начале работы---
+ */
+
+.chat, .registration, .toolbar__logout {
+    display: none;
+}

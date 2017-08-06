@@ -5,21 +5,18 @@ module.exports = (page) => {
         case PAGE_LOGIN:
             document.getElementById('login').style.display = 'block';
             document.getElementById('registration').style.display = 'none';
-            document.getElementById('toolbar').style.display = 'none';
             document.getElementById('chat').style.display = 'none';
             break;
 
         case PAGE_REGISTRATION:
             document.getElementById('login').style.display = 'none';
             document.getElementById('registration').style.display = 'block';
-            document.getElementById('toolbar').style.display = 'none';
             document.getElementById('chat').style.display = 'none';
             break;
 
         case PAGE_CHAT:
             document.getElementById('login').style.display = 'none';
             document.getElementById('registration').style.display = 'none';
-            document.getElementById('toolbar').style.display = 'block';
             document.getElementById('chat').style.display = 'block';
             break;
     }

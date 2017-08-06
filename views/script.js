@@ -1,17 +1,12 @@
-const registration = require('./scripts/registration'),
-    changePage = require('./scripts/changePage'),
-    {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('./constants/constants');
+const ChatPage = require('./interface-scripts/chatPage'),
+    LoginPage = require('./interface-scripts/loginPage'),
+    RegistrationPage = require('./interface-scripts/registrationPage'),
+    Toolbar = require('./interface-scripts/toolbar'),
+    store = {};
 
 document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById('login__go-to-registration').onclick = () => {
-        changePage(PAGE_REGISTRATION);
-    };
-
-    document.getElementById('registration__go-to-login').onclick = () => {
-        changePage(PAGE_LOGIN);
-    };
-
-    document.getElementById('registration__run').onclick = () => {
-        registration(document.getElementById('registration__login').value, document.getElementById('registration__password').value, document.getElementById('registration__name').value);
-    };
+    store.chatPage = new ChatPage(store);
+    store.loginPage = new LoginPage(store);
+    store.registrationPage = new RegistrationPage(store);
+    store.toolbar = new Toolbar(store);
 }, false);
