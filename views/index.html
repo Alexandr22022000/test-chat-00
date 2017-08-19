@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Test chat</title>
@@ -7,42 +7,56 @@
     <link type="text/css" href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-<div id="toolbar" class="toolbar">
-    <p id="toolbar__status" class="toolbar__status">Готов</p>
-    <button id="toolbar__logout" class="toolbar__logout">Выход</button>
-    <h1 id="toolbar__user-name" class="toolbar__user-name">Войдите в аккаунт</h1>
-</div>
-<dib class="content">
-    <div id="login" class="login">
-        <h1 class="login__title">Войти в аккаунт</h1>
-        <p class="login__annotation">Логин:</p>
-        <input id="login__login" class="login__login"/>
-        <p class="login__annotation">Пароль:</p>
-        <input id="login__password" class="login__password"/>
-        <button id="login__run" class="login__run">Войти</button>
-        <a href="#" id="login__go-to-registration" class="login__go-to-registration">Создать новый аккаунт</a>
+<div class="site">
+    <div id="toolbar" class="toolbar">
+        <p id="toolbar__status" class="toolbar__status">Готов</p>
+        <button id="toolbar__logout" class="toolbar__logout">Выход</button>
+        <h1 id="toolbar__user-name" class="toolbar__user-name">Войдите в аккаунт</h1>
     </div>
-    <div id="registration" class="registration">
-        <h1 class="registration__title">Создать новый аккаунт</h1>
-        <p class="registration__annotation">Имя:</p>
-        <input id="registration__name" class="registration__name"/>
-        <p class="registration__annotation">Логин:</p>
-        <input id="registration__login" class="registration__login"/>
-        <p class="registration__annotation">Пароль:</p>
-        <input id="registration__password" class="registration__password"/>
-        <button id="registration__run" class="registration__run">Регистрация</button>
-        <a href="#" id="registration__go-to-login" class="registration__go-to-login">Войти в аккаунт</a>
-    </div>
-    <div id="chat" class="chat">
-        <div id="chat__messages" class="chat__messages">
-            <!--<div class="message">
-                <p class="message__text">ыаовышщывдпр лор  ырвплор о ры пр р прлоыплы рл ыпр ы ырыл прл ра прва рва р р ар авлрлр влов ылр ылоы ои ыолро ыоып и ыро роыор и ы</p>
-                <p class="message__sender">Test Sender</p>
-            </div>-->
+    <div class="content">
+        <div id="login" class="login">
+            <h1 class="login__title">Войти в аккаунт</h1>
+            <p class="login__annotation">Логин:</p>
+            <input id="login__login" class="login__login"/>
+            <p class="login__annotation">Пароль:</p>
+            <input id="login__password" class="login__password"/>
+            <button id="login__run" class="login__run">Войти</button>
+            <a href="#" id="login__go-to-registration" class="login__go-to-registration">Создать новый аккаунт</a>
         </div>
-        <input id="chat__text-new-message" class="chat__text-new-message">
-        <button id="chat__send-new-message" class="chat__send-new-message">Отправить</button>
+        <div id="registration" class="registration">
+            <h1 class="registration__title">Создать новый аккаунт</h1>
+            <p class="registration__annotation">Имя:</p>
+            <input id="registration__name" class="registration__name"/>
+            <p class="registration__annotation">Логин:</p>
+            <input id="registration__login" class="registration__login"/>
+            <p class="registration__annotation">Пароль:</p>
+            <input id="registration__password" class="registration__password"/>
+            <button id="registration__run" class="registration__run">Регистрация</button>
+            <a href="#" id="registration__go-to-login" class="registration__go-to-login">Войти в аккаунт</a>
+        </div>
+        <div id="chat" class="chat">
+            <div class="chat__messages-container">
+                <div id="chat__messages" class="chat__messages">
+                    <!--<div class="message">
+                        <p class="message__text">ыаовышщывдпр лор  ырвплор о р</p>
+                        <p class="message__sender">Test Sender</p>
+                    </div>-->
+                </div>
+            </div>
+            <div class="chat__bottom">
+                <table class="chat__new-message">
+                    <tr>
+                        <td class="chat__text-new-message">
+                            <textarea id="chat__text-new-message" class="chat__text-new-message"></textarea>
+                        </td>
+                        <td class="chat__send-new-message">
+                            <button id="chat__send-new-message" class="chat__send-new-message">Отправить</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-</dib>
+</div>
 </body>
 </html>

@@ -49,7 +49,7 @@ module.exports = (page) => {
         case PAGE_CHAT:
             document.getElementById('login').style.display = 'none';
             document.getElementById('registration').style.display = 'none';
-            document.getElementById('chat').style.display = 'block';
+            document.getElementById('chat').style.display = 'table';
             break;
     }
 };
