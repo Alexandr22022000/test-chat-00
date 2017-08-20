@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <title>Test chat</title>
     <script src="script.js"></script>
-    <link type="text/css" href="styles.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+            .test(navigator.userAgent);
+
+        if (isMobile) {
+            document.write("<link type=\"text/css\" href=\"stylesMobile.css\" rel=\"stylesheet\"/>");
+        }
+        else {
+            document.write('<link type="text/css" href="styles.css" rel="stylesheet"/>')
+        }
+    </script>
 </head>
 <body>
 <div class="site">
@@ -37,10 +47,10 @@
         <div id="chat" class="chat">
             <div class="chat__messages-container">
                 <div id="chat__messages" class="chat__messages">
-                    <!--<div class="message">
+                    <div class="message">
                         <p class="message__text">ыаовышщывдпр лор  ырвплор о р</p>
                         <p class="message__sender">Test Sender</p>
-                    </div>-->
+                    </div>
                 </div>
             </div>
             <div class="chat__bottom">
