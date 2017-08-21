@@ -1,0 +1,48 @@
+@import "fonts";
+
+@mixin desktop-small-window ($padding) {
+  width: 500px;
+  padding: $padding;
+  margin: 20vh auto 0;
+}
+
+@mixin desktop-small-window-annotation {
+  margin: 20px 0 0 10%;
+  font-size: $font-small-window-annotation;
+}
+
+@mixin desktop-small-window-input {
+  height: 25px;
+  font-size: $font-small-window-input;
+}
+
+@mixin desktop-small-window-button ($width) {
+  width: $width;
+  font-size: $font-small-window-button;
+
+  height: 50px;
+  margin: 30px auto 20px auto;
+}
+
+@mixin desktop-small-window-title {
+  font-size: $font-small-window-title;
+}
+
+@mixin desktop-small-window-go-to {
+  font-size: $font-small-window-go-to;
+}
+
+/*
+---Change size---
+ */
+
+@mixin lengthy-small-window {
+  margin-top: 0;
+  height: 100%;
+}
+
+@mixin full-small-window {
+  margin-top: 0;
+  height: 100%;
+  width: 100%;
+}

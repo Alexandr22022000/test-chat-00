@@ -1,0 +1,38 @@
+@import "smallWindow";
+@import "../styles/mixin";
+
+.login {
+ @include desktop-small-window(10px 0 15px)
+}
+
+@media only screen and (max-height: 500px) {
+  .login {
+    @include lengthy-small-window();
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .login {
+    @include full-small-window();
+  }
+}
+
+.login__password, .login__login {
+  @include desktop-small-window-input();
+}
+
+.login__annotation {
+  @include desktop-small-window-annotation();
+}
+
+.login__title {
+  @include desktop-small-window-title();
+}
+
+.login__go-to-registration {
+  @include desktop-small-window-go-to();
+}
+
+.login__run {
+  @include desktop-small-window-button(150px);
+}

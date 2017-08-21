@@ -1,0 +1,38 @@
+@import "smallWindow";
+
+.registration {
+  @include desktop-small-window(20px 0);
+}
+
+.registration__password, .registration__login, .registration__name {
+  @include desktop-small-window-input();
+}
+
+.registration__annotation {
+  @include desktop-small-window-annotation();
+}
+
+.registration__title {
+  @include desktop-small-window-title();
+}
+
+.registration__go-to-login {
+  @include desktop-small-window-go-to();
+}
+
+.registration__run {
+  @include desktop-small-window-button(200px);
+}
+
+
+@media only screen and (max-height: 600px) {
+  .registration {
+    @include lengthy-small-window();
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .registration {
+    @include full-small-window();
+  }
+}

@@ -1,0 +1,33 @@
+@import "mixin";
+@import "smallWindow";
+
+
+.registration {
+  @include small-window();
+}
+
+.registration__login, .registration__name, .registration__password, .registration__run, .registration__go-to-registration {
+  display: block;
+}
+
+
+.registration__password, .registration__login, .registration__name {
+  @include small-window-input();
+}
+
+.registration__annotation {
+  @include small-window-annotation();
+}
+
+.registration__title {
+  @include small-window-title();
+}
+
+.registration__go-to-login {
+  @include small-window-go-to();
+}
+
+.registration__run {
+  @include button();
+  @include small-window-button();
+}

@@ -1,0 +1,14 @@
+@import "colors";
+@import "../stylesDesktop/fonts";
+
+@mixin site ($isMobile) {
+  display: if($isMobile, block, table);
+  width: 100%;
+  height: 100%;
+  background-color: $color-background;
+}
+
+@mixin button () {
+  cursor: pointer;
+  outline: none;
+}

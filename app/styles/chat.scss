@@ -1,0 +1,50 @@
+@import "mixin";
+@import "colors";
+
+
+.chat {
+  background-color: $color-big-window-input;
+  display: table;
+}
+
+.chat__messages {
+  background-color: $color-big-window-background;
+
+  height: 100%;
+  overflow-y: auto;
+}
+
+.chat__messages-container {
+  background-color: $color-big-window-background;
+
+  height: 100%;
+  display: table-row;
+}
+
+.chat__bottom {
+  background-color: $color-big-window-button;
+
+  display: table-row;
+}
+
+.chat__new-message {
+  width: 100%;
+}
+
+.chat__text-new-message {
+  background-color: $color-big-window-input;
+  color: $color-big-window-text;
+
+  width: 100%;
+  resize: vertical;
+  outline: none;
+}
+
+.chat__send-new-message {
+  @include button();
+
+  background-color: $color-big-window-button;
+  color: $color-big-window-text;
+
+  height: 100%;
+}

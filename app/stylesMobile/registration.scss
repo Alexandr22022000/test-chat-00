@@ -1,0 +1,52 @@
+@import "smallWindow";
+
+.registration {
+  @include mobile-small-window();
+}
+
+.registration__password, .registration__login, .registration__name {
+  @include mobile-small-window-input();
+}
+
+.registration__annotation {
+  @include mobile-small-window-annotation();
+}
+
+.registration__run {
+  @include mobile-small-window-button(45%);
+}
+
+.registration__title {
+  @include mobile-small-window-title(20%);
+}
+
+.registration__go-to-login {
+  @include mobile-small-window-go-to();
+}
+
+
+@media only screen and (orientation: landscape) {
+  .registration {
+    @include landscape-small-window();
+  }
+
+  .registration__password, .registration__login, .registration__name {
+    @include landscape-small-window-input();
+  }
+
+  .registration__annotation {
+    @include landscape-small-window-annotation();
+  }
+
+  .registration__run {
+    @include landscape-small-window-button(45%);
+  }
+
+  .registration__title {
+    @include landscape-small-window-title();
+  }
+
+  .registration__go-to-login {
+    @include landscape-small-window-go-to();
+  }
+}

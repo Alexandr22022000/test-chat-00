@@ -1,0 +1,37 @@
+@import "mixin";
+@import "colors";
+@import "../stylesDesktop/fonts";
+
+$toolbar-height: 50px;
+
+
+.toolbar {
+  background-color: $color-toolbar-background;
+  width: 100%;
+}
+
+
+.toolbar__status, .toolbar__user-name, .toolbar__logout {
+  display: inline-block;
+}
+
+.toolbar__user-name, .toolbar__logout {
+  float: right;
+}
+
+
+.toolbar__status {
+  color: $color-toolbar-text;
+}
+
+.toolbar__user-name {
+  color: $color-toolbar-text;
+}
+
+.toolbar__logout {
+  @include button();
+
+  border-left: 2px solid $color-toolbar-border;
+  color: $color-toolbar-text;
+  background-color: $color-toolbar-background;
+}

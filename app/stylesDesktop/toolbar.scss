@@ -1,0 +1,24 @@
+@import "fonts";
+
+$toolbar-height: 50px;
+
+.toolbar {
+  height: $toolbar-height;
+  display: table-row;
+}
+
+.toolbar__status {
+  font-size: $font-toolbar-status;
+  margin: ($toolbar-height/3) 20px;
+}
+
+.toolbar__user-name {
+  font-size: $font-toolbar-username;
+  margin: ($toolbar-height/10) 20px;
+}
+
+.toolbar__logout {
+  font-size: $font-toolbar-logout;
+  height: $toolbar-height;
+  width: 100px;
+}

@@ -1,0 +1,34 @@
+@import "colors";
+
+@mixin small-window {
+  background: #AAA;
+  display: block;
+  text-align: center;
+}
+
+@mixin small-window-annotation {
+  color: $color-small-window-text;
+  text-align: left;
+}
+
+@mixin small-window-button {
+  background-color: $color-small-window-button;
+  color: $color-small-window-text;
+}
+
+@mixin small-window-input {
+  background-color: $color-small-window-input;
+  color: $color-small-window-text;
+
+  width: 80%;
+  margin: 0 10%;
+  outline: none;
+}
+
+@mixin small-window-title {
+  color: $color-small-window-text;
+}
+
+@mixin small-window-go-to {
+  color: $color-small-window-text;
+}

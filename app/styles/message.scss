@@ -1,0 +1,15 @@
+@import "colors";
+
+.message {
+  border: 2px solid $color-message-border;
+  padding: 5px;
+}
+
+.message__text {
+  color: $color-message-text;
+}
+
+.message__sender {
+  text-align: right;
+  color: $color-message-text;
+}

@@ -29,6 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
     store.registrationPage = new RegistrationPage(store);
     store.toolbar = new Toolbar(store);
 }, false);
+
+/*
+---Check devise---
+ */
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (isMobile) {
+    document.write('<link type="text/css" href="stylesMobile.css" rel="stylesheet"/>');
+} else {
+    document.write('<link type="text/css" href="styles.css" rel="stylesheet"/>');
+}
 },{"./interface-scripts/chatPage":5,"./interface-scripts/loginPage":6,"./interface-scripts/registrationPage":7,"./interface-scripts/toolbar":8}],4:[function(require,module,exports){
 const {PAGE_LOGIN, PAGE_REGISTRATION, PAGE_CHAT} = require('../constants/pages');
 

@@ -1,0 +1,18 @@
+.message__text {
+  font-size: 270%;
+}
+
+.message__sender {
+  font-size: 250%;
+}
+
+
+@media only screen and (orientation: landscape) {
+  .message__text {
+    font-size: 150%;
+  }
+
+  .message__sender {
+    font-size: 150%;
+  }
+}

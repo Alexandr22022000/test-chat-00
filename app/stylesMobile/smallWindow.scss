@@ -1,0 +1,68 @@
+@mixin mobile-small-window {
+  width: 100%;
+  height: 99%;
+  padding-top: 1%;
+}
+
+@mixin mobile-small-window-annotation {
+  margin: 5% 0 2% 10%;
+  font-size: 300%;
+}
+
+@mixin mobile-small-window-input {
+  height: 4%;
+  font-size: 300%;
+}
+
+@mixin mobile-small-window-button ($width) {
+  width: $width;
+  height: 8%;
+  font-size: 350%;
+  margin: 8% auto 5% auto;
+}
+
+@mixin mobile-small-window-title ($margin) {
+  margin-top: $margin;
+  font-size: 350%;
+}
+
+@mixin mobile-small-window-go-to {
+  font-size: 200%;
+}
+
+/*
+---Landscape---
+ */
+
+@mixin landscape-small-window {
+  height: auto;
+  padding-bottom: 1px;
+}
+
+@mixin landscape-small-window-input {
+  width: 80%;
+  height: 50px;
+  font-size: 250%;
+}
+
+@mixin landscape-small-window-annotation {
+  margin: 30px 0 15px 10%;
+  font-size: 200%;
+}
+
+@mixin landscape-small-window-button ($width) {
+  width: $width;
+  height: 70px;
+  font-size: 250%;
+  margin: 50px auto 40px auto;
+}
+
+@mixin landscape-small-window-title {
+  font-size: 250%;
+  margin-top: 30px;
+}
+
+@mixin landscape-small-window-go-to {
+  font-size: 150%;
+  margin-bottom: 30px;
+}

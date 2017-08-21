@@ -1,0 +1,10 @@
+@import "../styles/mixin";
+
+.site {
+  @include site(false)
+}
+
+.content {
+  display: table-row;
+  width: 100%;
+}
